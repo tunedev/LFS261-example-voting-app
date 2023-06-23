@@ -34,10 +34,10 @@ pipeline {
 			echo 'Result Job Done !!!"
 		}
 		failure{
-			slackSend(message: 'Build ${env.JOB_NAME} ${env.BUILD_NUMBER} Failed', channel: '#ci-cd')
+			slackSend(channel: 'ci-cd',message: 'Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)')
 		}
 		success{
-			slackSend(message: 'Build ${env.JOB_NAME} ${env.BUILD_NUMBER} Succeed', channel: '#ci-cd')
+			slackSend(channel: 'ci-cd', message: 'Build Succeded - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL|Open>})')
 		}
 	}
 }
