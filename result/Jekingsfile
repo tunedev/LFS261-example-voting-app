@@ -10,7 +10,9 @@ pipeline {
 			}
 			steps {
 				echo 'Build stage..'
-				sh 'npm install'
+				dir('result'){
+					sh 'npm install'
+				}
 			}
 		}
 		stage('test'){
@@ -19,8 +21,11 @@ pipeline {
 			}
 			steps {
 				echo 'Test stage..'
-				sh 'npm install'
-				sh 'npm test'
+				dir('result'){
+
+					sh 'npm install'
+					sh 'npm test'
+				}
 			}
 		}
 	}
