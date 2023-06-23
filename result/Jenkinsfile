@@ -31,7 +31,7 @@ pipeline {
 	}
 	post{
 		always {
-			echo 'Result Job Done !!!"
+			echo 'Result Job Done !!!'
 		}
 		failure{
 			slackSend(channel: 'ci-cd',message: 'Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)')
